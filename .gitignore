@@ -1,0 +1,6 @@
+dataset/
+knowledge_base/
+__pycache__/
+*.pyc
+.py_env/
+draft.md
