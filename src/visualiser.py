@@ -18,10 +18,10 @@ def plot_forensic_cluster(
         print(f"[-] Node {center_node} not found in graph.")
         return
 
-    # 1. Extract the local 2-hop neighborhood (to_undirected allows bi-directional traversal)
+    # Extract the local 2-hop neighborhood (to_undirected allows bi-directional traversal)
     subgraph = nx.ego_graph(G.to_undirected(), center_node, radius=radius)
     
-    # 2. Assign colors and sizes based on the Diamond node type
+    # Assign colors and sizes based on the Diamond node type
     node_colors = []
     node_sizes = []
     labels = {}
@@ -48,11 +48,11 @@ def plot_forensic_cluster(
             node_sizes.append(600)
             labels[node] = f"[CAP]\n{node_data.get('subtype', '')}"
 
-    # 3. Compute layout coordinates
+    # Compute layout coordinates
     plt.figure(figsize=(12, 8), dpi=120)
     pos = nx.spring_layout(subgraph, k=0.6, seed=42)
 
-    # 4. Draw graph elements
+    # Draw graph elements
     nx.draw_networkx_nodes(
         subgraph, pos,
         node_color=node_colors,
@@ -68,7 +68,7 @@ def plot_forensic_cluster(
     plt.axis("off")
     plt.tight_layout()
 
-    # 5. Export or Render
+    # Export or Render
     if save_path:
         out_file = Path(save_path)
         out_file.parent.mkdir(parents=True, exist_ok=True)  # Create assets/ directory if missing

@@ -36,9 +36,7 @@ def isolate_patient_zeros(
         root_data = G.nodes[root]
         seq_idx = root_data.get("seq_index", 0)
 
-        # -------------------------------------------------------------
         # CRITERION 1: Artifact Novelty (First-Contact Originator)
-        # -------------------------------------------------------------
         originated_artifacts: List[Dict[str, Any]] = []
         stigmergic_consumers: Set[str] = set()
 
@@ -63,9 +61,7 @@ def isolate_patient_zeros(
                     "consumers_count": len(consumers)
                 })
 
-        # -------------------------------------------------------------
         # CRITERION 2: Capability Pairing (Exploits / Attack Vectors)
-        # -------------------------------------------------------------
         capabilities: List[Dict[str, Any]] = []
         total_cap_severity = 0.0
 
@@ -86,9 +82,7 @@ def isolate_patient_zeros(
             })
             total_cap_severity += severity
 
-        # -------------------------------------------------------------
         # CRITERION 3: Downstream Descendant Count (Blast Radius)
-        # -------------------------------------------------------------
         # A. Direct Causal Lineage Descendants
         lineage_descendants: Set[str] = set()
         if lineage_G.has_node(root):
@@ -98,9 +92,7 @@ def isolate_patient_zeros(
         total_blast_radius = lineage_descendants.union(stigmergic_consumers)
         total_reach = len(total_blast_radius)
 
-        # -------------------------------------------------------------
         # COMPOSITE SCORING & CLASSIFICATION
-        # -------------------------------------------------------------
         # Base asset origination score
         novelty_score = sum(
             a["diamond_multiplier"] * (1.0 + math.log1p(a["consumers_count"]))

@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Optional
 from pydantic import BaseModel, Field, AliasChoices, ConfigDict, field_validator
 
 
-# 1. Raw Ingestion Model (with resilient type validators)
+# Raw Ingestion Model (with resilient type validators)
 class SwarmTracesRawRecord(BaseModel):
     model_config = ConfigDict(populate_by_name=True, extra="ignore")
 
@@ -41,7 +41,7 @@ class SwarmTracesRawRecord(BaseModel):
         return []
 
 
-# 2. Extracted Malicious Payload Artifact
+# Extracted Malicious Payload Artifact
 class ExtractedAttackArtifact(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
@@ -54,7 +54,7 @@ class ExtractedAttackArtifact(BaseModel):
     has_command_injection: bool = False
 
 
-# 3. Normalized Graph Event
+# Normalized Graph Event
 class NormalizedForensicEvent(BaseModel):
     step: int
     event_id: str
