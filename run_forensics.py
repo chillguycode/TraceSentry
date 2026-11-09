@@ -31,8 +31,8 @@ def parse_arguments() -> argparse.Namespace:
     parser.add_argument(
         "--limit",
         type=int,
-        default=5000,
-        help="Number of records to stream. Set to 0 or negative to process the entire dataset (default: 5000)"
+        default=0,
+        help="Number of records to stream. Set to 0 or negative to process the entire dataset (default: 0 or All rows)"
     )
     parser.add_argument(
         "--min-blast",
