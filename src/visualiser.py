@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 import networkx as nx
 
+FONT_FAMILY = "STIX Two Text"
+plt.rcParams["font.family"] = FONT_FAMILY
 
 # Publication-oriented visual settings
 FIGURE_SIZE = (14.5, 10.0)
@@ -544,7 +546,7 @@ def plot_forensic_cluster(
         pos,
         labels={center_node: labels[center_node]},
         font_size=10,
-        font_family="sans-serif",
+        font_family= FONT_FAMILY,
         font_weight="bold",
         font_color=TEXT_COLOR,
         bbox=dict(
@@ -573,7 +575,7 @@ def plot_forensic_cluster(
             ha=ha,
             va="bottom" if upward else "top",
             fontsize=7.2,
-            fontfamily="sans-serif",
+            fontfamily= FONT_FAMILY,
             fontweight="bold",
             color=TEXT_COLOR,
             bbox=dict(
@@ -603,7 +605,7 @@ def plot_forensic_cluster(
             ha="center",
             va="top",
             fontsize=7.1,
-            fontfamily="sans-serif",
+            fontfamily= FONT_FAMILY,
             fontweight="bold",
             color=TEXT_COLOR,
             bbox=dict(
@@ -638,7 +640,7 @@ def plot_forensic_cluster(
             ha="left" if dx > 0 else "right",
             va="bottom" if dy > 0 else "top",
             fontsize=6.0,
-            fontfamily="sans-serif",
+            fontfamily= FONT_FAMILY,
             color="#3B4652",
             bbox=dict(
                 boxstyle="round,pad=0.10",
