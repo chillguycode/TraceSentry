@@ -9,14 +9,6 @@ This repository contains the implementation used for the experiments in the acco
 ---
 ![Forensic Visualisation](./assets/graph.png)
 
-### Key Performance Metrics
-| Metric | Result |
-| :--- | :--- |
-| **Detection Recall** | **98.0%** |
-| **False Positive Rate** | **1.8%** |
-| **Gateway Latency** | **0.04 ms** |
-| **Throughput** | **27,805 req/sec** |
-
 ---
 
 ## Quick Start
